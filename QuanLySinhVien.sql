@@ -136,9 +136,12 @@ having max(m.Mark) >= all (select max(m1.Mark) from mark m1 group by m1.SubID)
 ;
 
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+create view student_mark as
 select stu.StudentID, stu.StudentName, stu.Address, stu.Phone, stu.`Status`, stu.ClassID, avg(m.Mark)
 from mark m 
 join student stu on m.StudentID = stu.StudentID
 group by m.StudentID
 order by avg(m.Mark) desc
 ;
+
+select * from student_mark;

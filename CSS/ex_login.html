@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://kit.fontawesome.com/ded42364fe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="ex_login.css">
+</head>
+<body>
+    <div class="container col-3">
+        <table class="login-table">
+            <thead>
+                <th colspan="2">
+                    <h3>Login</h3>
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="user-input" colspan="2">
+                        <i class="fa-regular fa-user icon" style="color: #005eff;"></i>
+                        <input type="text" placeholder="Username or Email">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="user-input" colspan="2">
+                        <i class="fa-solid fa-lock icon" style="color: #005eff;"></i>
+                        <input type="text" placeholder="Enter your Password">
+                        <i class="fa-solid fa-eye-slash" style="color: #868c98;"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="remember" type="checkbox">
+                        <label for="remember">Remember me</label>
+                    </td>
+                    <td class="forgotpassword">
+                        <a href="#">Forgot password?</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="login-button">
+                        <button>Login</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Don't have an account? 
+            <a href="#">Sign up</a>
+        </p>
+        <fieldset>
+            <legend>or connect with</legend>
+        </fieldset>
+        <div class="connect-icons">
+            <i class="fa-brands fa-facebook connect-icon" style="color: #005eff;"></i>
+            <i class="fa-brands fa-google connect-icon"></i>
+            <i class="fa-brands fa-github connect-icon" style="color: #000000;"></i>
+        </div>
+    </div>
+</body>
+</html>

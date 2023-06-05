@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex_data-table.css">
+</head>
+<body>
+    <div class="data-container col-7">
+        <h2>Ajax CRUD with Bootstrap modals and Datatables</h2>
+        <h4>Person data</h4>
+        <span class="add-button">
+            <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+            <input type="button" value="Add Person">
+        </span>
+        <div class="show-search col-12">
+            <p>Show 
+                <select name="show-quantity" id="show-quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option selected value="10">10</option>
+                </select>
+            entries</p>
+            <p>Search
+                <input type="text">
+            </p>
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>First Name
+                        <i class="fa-solid fa-arrow-down-short-wide" style="color: #808080;"></i>
+                    </th>
+                    <th>Last Name
+                        <i class="fa-solid fa-sort" style="color: #808080;"></i>
+                    </th>
+                    <th>Gender
+                        <i class="fa-solid fa-sort" style="color: #808080;"></i>
+                    </th>
+                    <th>Address
+                        <i class="fa-solid fa-sort" style="color: #808080;"></i>
+                    </th>
+                    <th>Date of Birth
+                        <i class="fa-solid fa-sort" style="color: #808080;"></i>
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Airi</td>
+                    <td>Satou</td>
+                    <td>female</td>
+                    <td>Tokyo</td>
+                    <td>1964-03-04</td>
+                    <td>
+                        <span class="edit-button">
+                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                            <input type="button" value="Edit">                            
+                        </span>
+                        <span class="delete-button">
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                            <input type="button" value="Delete">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Garret</td>
+                    <td>Winters</td>
+                    <td>male</td>
+                    <td>Tokyo</td>
+                    <td>1968-09-02</td>
+                    <td>
+                        <span class="edit-button">
+                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                            <input type="button" value="Edit">                            
+                        </span>
+                        <span class="delete-button">
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                            <input type="button" value="Delete">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>male</td>
+                    <td>Kansas</td>
+                    <td>1972-11-02</td>
+                    <td>
+                        <span class="edit-button">
+                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                            <input type="button" value="Edit">                            
+                        </span>
+                        <span class="delete-button">
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                            <input type="button" value="Delete">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quinn</td>
+                    <td>Flynn</td>
+                    <td>male</td>
+                    <td>Edinburgh</td>
+                    <td>1977-03-24</td>
+                    <td>
+                        <span class="edit-button">
+                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                            <input type="button" value="Edit">                            
+                        </span>
+                        <span class="delete-button">
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                            <input type="button" value="Delete">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tatyana</td>
+                    <td>Fitzpatrick</td>
+                    <td>male</td>
+                    <td>London</td>
+                    <td>1969-01-01</td>
+                    <td>
+                        <span class="edit-button">
+                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                            <input type="button" value="Edit">                            
+                        </span>
+                        <span class="delete-button">
+                            <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                            <input type="button" value="Delete">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Date of Birth</th>
+                    <th>Action</th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer-data col-12">
+            <p class="col-9">Showing 1 to 5 of 5 entries</p>
+            <div class="turn-pages col-3">
+                <input type="button" value="Previous">
+                <p>1</p>
+                <input type="button" value="Next">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/ded42364fe.js" crossorigin="anonymous"></script>
+</html>

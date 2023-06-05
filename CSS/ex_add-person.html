@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add person</title>
+    <link rel="stylesheet" href="ex_add-person.css">
+</head>
+<body>
+    <div class="col-5 table-container">
+        <table class="col-12">
+            <caption>
+                <h2>Add Person</h2>
+                <i class="fa-solid fa-xmark" style="color: #979aa1;"></i>            
+            </caption>
+            <thead>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>First Name</p>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="First Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Last Name</p>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Last Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Gender</p>
+                    </td>
+                    <td>
+                        <select name="gender" id="gender-drop">
+                            <option selected value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Address</p>
+                    </td>
+                    <td>
+                        <textarea name="address" id="address-input" cols="30" rows="3" placeholder="Adress"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Date of Birth</p>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="yyyy-mm-dd">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            <input type="button" value="Save">
+            <input type="button" value="Cancel">
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/ded42364fe.js" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    /* margin: 0 0 0 5px; */
+    padding: 0;
+}
+#menu li {
+    list-style: none;
+    position: relative;
+    width: 100px;
+    height: 30px;
+    padding: 0 20px;
+    background-color: black;
+    line-height: 30px;
+    cursor: pointer;
+}
+#menu li a{
+    text-decoration: none;
+    color: wheat;
+}
+
+#menu li:hover{
+    background-color: darkred;
+}
+
+#menu ul ul{
+    position: absolute;
+    left: 100px;
+    top: 0;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
