@@ -14,4 +14,6 @@ public interface ICustomerService {
     void update(int id, Customer customer);
 
     void remove(int id);
+    List<Customer> findAll(String address);
+    List<Customer> sortByName();
 }

@@ -141,7 +141,7 @@
                     <p>Address</p>
                 </td>
                 <td>
-                    <textarea name="address" value="${customer.getAddress()}" id="address-input" cols="30" rows="3" placeholder="Adress"></textarea>
+                    <input type="text" name="address" value="${customer.getAddress()}" placeholder="Adress">
                 </td>
             </tr>
             </tbody>

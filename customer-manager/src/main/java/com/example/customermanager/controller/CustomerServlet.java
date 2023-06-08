@@ -2,6 +2,7 @@ package com.example.customermanager.controller;
 
 import com.example.customermanager.model.Customer;
 import com.example.customermanager.service.CustomerService;
+import com.example.customermanager.service.CustomerServiceMySql;
 import com.example.customermanager.service.ICustomerService;
 
 import java.io.*;
@@ -10,9 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "CustomerServlet", value = "/customer")
+@WebServlet(name = "CustomerServlet", value ={"/customer","/"})
 public class CustomerServlet extends HttpServlet {
-    private ICustomerService customerService = new CustomerService();
+    private ICustomerService customerService = new CustomerServiceMySql();
 
     public void init() {
 
@@ -38,6 +39,13 @@ public class CustomerServlet extends HttpServlet {
                 Customer cDelete = customerService.findById(idDelete);
                 request.setAttribute("customer",cDelete);
                 request.getRequestDispatcher("/delete.jsp").forward(request,response);
+                break;
+            case "sort":
+                List<Customer> customerListSort = customerService.sortByName();
+
+                request.setAttribute("customers", customerListSort);
+                request.getRequestDispatcher("/list.jsp").forward(request, response);
+                break;
             default:
                 List<Customer> customerList = customerService.findAll();
 
@@ -84,10 +92,21 @@ public class CustomerServlet extends HttpServlet {
                 cEdit.setEmail(emailEdit);
                 customerService.update(idEdit,cEdit);
                 resp.sendRedirect("/customer");
+                break;
             case "delete":
                 int idDelete = Integer.parseInt(req.getParameter("id"));
                 customerService.remove(idDelete);
                 resp.sendRedirect("/customer");
+                break;
+            case "search":
+                String key = req.getParameter("key");
+                System.out.println(key);
+                List<Customer> customerListSearch = customerService.findAll(key);
+                System.out.println(customerListSearch);
+
+                req.setAttribute("customers", customerListSearch);
+                req.getRequestDispatcher("/list.jsp").forward(req, resp);
+                break;
             default:
                 break;
         }

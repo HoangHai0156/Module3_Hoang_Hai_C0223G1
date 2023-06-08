@@ -43,4 +43,18 @@ public class CustomerService implements ICustomerService{
     public void remove(int id) {
         customers.remove(id);
     }
+
+    @Override
+    public List<Customer> findAll(String address) {
+        return null;
+    }
+
+    @Override
+    public List<Customer> sortByName() {
+        return null;
+    }
+
+    public void sortById() {
+
+    }
 }

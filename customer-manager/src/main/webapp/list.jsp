@@ -244,16 +244,19 @@
             </select>
             entries
         </p>
-        <p>Search
-            <input type="text">
-        </p>
+            <form action="?action=search" method="post">
+                <p>
+                    <input type="text" name="key" placeholder="Search by address...">
+                    <input type="submit" value="Search">
+                </p>
+            </form>
     </div>
 
     <table class="data-table">
         <thead>
         <tr>
             <th>Name
-                <i class="fa-solid fa-arrow-down-short-wide" style="color: #808080;"></i>
+                <a href="?action=sort"><i class="fa-solid fa-arrow-down-short-wide" style="color: #808080;"></i></a>
             </th>
             <th>Email
                 <i class="fa-solid fa-sort" style="color: #808080;"></i>
