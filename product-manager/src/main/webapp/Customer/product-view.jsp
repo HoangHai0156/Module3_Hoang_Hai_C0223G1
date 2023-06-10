@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 7/6/2023
-  Time: 2:35 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -13,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Product</title>
+    <title>View product</title>
+    <link rel="stylesheet" href="ex_add-person.css">
     <style>
         *{
             margin: 0;
@@ -88,7 +82,7 @@
             display: flex;
             justify-content: flex-end;
         }
-        .footer input[type=button]{
+        .footer input{
             padding: 8px;
             margin: 5px;
             border-style: none;
@@ -96,10 +90,13 @@
             color: white;
             font-size: 10px;
         }
-        .footer input[value=Save]{
+        .footer input:hover{
+            cursor: pointer;
+        }
+        .footer input[type=submit]{
             background-color: aqua;
         }
-        .footer input[value=Cancel]{
+        .footer input[type=button]{
             background-color: rgb(139, 23, 23);
         }
         .fa-xmark:hover, .footer input[type=button]:hover{
@@ -109,11 +106,11 @@
 </head>
 <body>
 <div class="col-5 table-container">
-    <form method="post">
+    <form>
         <table class="col-12">
             <caption>
-                <h2>Edit Product</h2>
-                <i class="fa-solid fa-xmark" style="color: #979aa1;"></i>
+                <h2>View Product</h2>
+                <a href="/product"><i class="fa-solid fa-xmark" style="color: #979aa1;"></i></a>
             </caption>
             <thead>
             <th></th>
@@ -125,15 +122,7 @@
                     <p>Name</p>
                 </td>
                 <td>
-                    <input type="text" name="name" value="${product.getName()}" placeholder="Name">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Price</p>
-                </td>
-                <td>
-                    <input type="text" name="price" value="${product.getPrice()}" placeholder="Price">
+                    <input readonly value="${requestScope.product.getName()}" type="text" name="name" placeholder="Name">
                 </td>
             </tr>
             <tr>
@@ -141,23 +130,35 @@
                     <p>Description</p>
                 </td>
                 <td>
-                    <input type="text" name="description" value="${product.getDescription()}" placeholder="Description">
+                    <input readonly value="${requestScope.product.getDescription()}" type="text" name="description" placeholder="Description">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Provider</p>
+                    <p>Price</p>
                 </td>
                 <td>
-                    <input type="text" name="provider" value="${product.getProviderName()}" placeholder="Provider">
+                    <input readonly value="${requestScope.product.getPrice()}" type="text" name="price" placeholder="Price">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Category</p>
+                </td>
+                <td>
+                    <select name="idCategory" disabled>
+                        <c:forEach var="id" items="${requestScope.categoryMap.keySet()}">
+                            <option
+                                    <c:if test="${id == requestScope.product.getIdCategory()}">
+                                        selected
+                                    </c:if>
+                                    value="${id}">${requestScope.categoryMap.get(id).getName()}</option>
+                        </c:forEach>
+                    </select>
                 </td>
             </tr>
             </tbody>
         </table>
-        <div class="footer">
-            <input type="submit" value="Edit">
-            <input type="reset" value="Cancel">
-        </div>
     </form>
 </div>
 </body>

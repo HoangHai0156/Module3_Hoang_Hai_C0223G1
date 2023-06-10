@@ -1,28 +1,40 @@
 package com.example.productmanager.model;
 
+import java.time.LocalDate;
+
 public class Product {
-    private int id;
+    private long id;
     private String name;
-    private double price;
     private String description;
-    private String providerName;
+    private LocalDate createAt;
+    private LocalDate deleteAt;
+    private float price;
+    private long idCategory;
 
     public Product() {
     }
-
-    public Product(int id, String name, double price, String description, String providerName) {
+    public Product(long id, String name, String description, LocalDate createAt, LocalDate deleteAt, float price, long idCategory) {
         this.id = id;
         this.name = name;
-        this.price = price;
         this.description = description;
-        this.providerName = providerName;
+        this.createAt = createAt;
+        this.deleteAt = deleteAt;
+        this.price = price;
+        this.idCategory = idCategory;
     }
 
-    public int getId() {
+    public Product(String name, String description, float price, long idCategory) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.idCategory = idCategory;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -34,14 +46,6 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -50,11 +54,35 @@ public class Product {
         this.description = description;
     }
 
-    public String getProviderName() {
-        return providerName;
+    public LocalDate getCreateAt() {
+        return createAt;
     }
 
-    public void setProviderName(String providerName) {
-        this.providerName = providerName;
+    public void setCreateAt(LocalDate createAt) {
+        this.createAt = createAt;
+    }
+
+    public LocalDate getDeleteAt() {
+        return deleteAt;
+    }
+
+    public void setDeleteAt(LocalDate deleteAt) {
+        this.deleteAt = deleteAt;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public long getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(long idCategory) {
+        this.idCategory = idCategory;
     }
 }

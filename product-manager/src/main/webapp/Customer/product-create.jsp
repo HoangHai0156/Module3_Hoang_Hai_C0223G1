@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -83,7 +82,7 @@
             display: flex;
             justify-content: flex-end;
         }
-        .footer input[type=button]{
+        .footer input{
             padding: 8px;
             margin: 5px;
             border-style: none;
@@ -91,10 +90,13 @@
             color: white;
             font-size: 10px;
         }
-        .footer input[value=Save]{
+        .footer input:hover{
+            cursor: pointer;
+        }
+        .footer input[type=submit]{
             background-color: aqua;
         }
-        .footer input[value=Cancel]{
+        .footer input[type=reset]{
             background-color: rgb(139, 23, 23);
         }
         .fa-xmark:hover, .footer input[type=button]:hover{
@@ -108,7 +110,7 @@
         <table class="col-12">
             <caption>
                 <h2>Add Product</h2>
-                <i class="fa-solid fa-xmark" style="color: #979aa1;"></i>
+                <a href="/product"><i class="fa-solid fa-xmark" style="color: #979aa1;"></i></a>
             </caption>
             <thead>
             <th></th>
@@ -125,14 +127,6 @@
             </tr>
             <tr>
                 <td>
-                    <p>Price</p>
-                </td>
-                <td>
-                    <input type="text" name="price" placeholder="Price">
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <p>Description</p>
                 </td>
                 <td>
@@ -141,17 +135,29 @@
             </tr>
             <tr>
                 <td>
-                    <p>Provider</p>
+                    <p>Price</p>
                 </td>
                 <td>
-                    <input type="text" name="provider" placeholder="Provider">
+                    <input type="text" name="price" placeholder="Price">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Category</p>
+                </td>
+                <td>
+                    <select name="idCategory">
+                        <c:forEach var="id" items="${categoryMap.keySet()}">
+                            <option value="${id}">${categoryMap.get(id).getName()}</option>
+                        </c:forEach>
+                    </select>
                 </td>
             </tr>
             </tbody>
         </table>
         <div class="footer">
             <input type="submit" value="Add">
-            <input type="reset" value="Cancel">
+            <a href="/product"><input type="button" value="Cancel"></a>
         </div>
     </form>
 </div>

@@ -215,6 +215,12 @@
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
         }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: hotpink;
+        }
     </style>
 </head>
 <body>
@@ -258,13 +264,13 @@
             <th>Name
                 <i class="fa-solid fa-arrow-down-short-wide" style="color: #808080;"></i>
             </th>
-            <th>Price
-                <i class="fa-solid fa-sort" style="color: #808080;"></i>
-            </th>
             <th>Description
                 <i class="fa-solid fa-sort" style="color: #808080;"></i>
             </th>
-            <th>Provider
+            <th>Price
+                <i class="fa-solid fa-sort" style="color: #808080;"></i>
+            </th>
+            <th>Category
                 <i class="fa-solid fa-sort" style="color: #808080;"></i>
             </th>
             <th>Action</th>
@@ -272,35 +278,37 @@
         </thead>
         <tbody>
         <c:forEach var="product" items="${products}">
-            <tr>
-                <td>
-                    <a href="?action=view&id=${product.getId()}">${product.getName()}</a>
-                </td>
-                <td>${product.getPrice()}</td>
-                <td>${product.getDescription()}</td>
-                <td>${product.getProviderName()}</td>
-                <td>
-                    <a href="?action=edit&id=${product.getId()}">
+            <c:if test="${product.getDeleteAt() == null}">
+                <tr>
+                    <td>
+                        <a href="?action=view&id=${product.getId()}">${product.getName()}</a>
+                    </td>
+                    <td>${product.getDescription()}</td>
+                    <td>${product.getPrice()}</td>
+                    <td>${requestScope.categoryMap.get(product.getIdCategory()).getName()}</td>
+                    <td>
+                        <a href="?action=edit&id=${product.getId()}">
                         <span class="edit-button">
                             <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
                             <input type="button" value="Edit">
                         </span>
-                    </a>
+                        </a>
 
-                    <a href="?action=delete&id=${product.getId()}">
+                        <a href="?action=delete&id=${product.getId()}">
                         <span class="delete-button">
                             <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
                             <input type="button" value="Delete">
                         </span>
-                    </a>
-                </td>
-            </tr>
+                        </a>
+                    </td>
+                </tr>
+            </c:if>
         </c:forEach>
         <tr>
             <th>Name</th>
-            <th>Price</th>
             <th>Description</th>
-            <th>Provider</th>
+            <th>Price</th>
+            <th>Category</th>
             <th>Action</th>
         </tr>
         </tbody>
