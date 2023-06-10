@@ -102,6 +102,9 @@
         .fa-xmark:hover, .footer input[type=button]:hover{
             cursor: pointer;
         }
+        tr td input + p, tr td select + p{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +125,10 @@
                     <p>Name</p>
                 </td>
                 <td>
-                    <input type="text" name="name" placeholder="Name">
+                    <input value="${requestScope.product.getName()}" type="text" name="name" placeholder="Name">
+                    <c:if test="${requestScope.errorsMap.containsKey('productNameInvalid')}">
+                        <p>${requestScope.errorsMap.get('productNameInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -130,7 +136,10 @@
                     <p>Description</p>
                 </td>
                 <td>
-                    <input type="text" name="description" placeholder="Description">
+                    <input value="${requestScope.product.getDescription()}" type="text" name="description" placeholder="Description">
+                    <c:if test="${requestScope.errorsMap.containsKey('descriptionInvalid')}">
+                        <p>${requestScope.errorsMap.get('descriptionInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -138,7 +147,10 @@
                     <p>Price</p>
                 </td>
                 <td>
-                    <input type="text" name="price" placeholder="Price">
+                    <input value="${requestScope.product.getPrice()}" type="text" name="price" placeholder="Price">
+                    <c:if test="${requestScope.errorsMap.containsKey('priceInvalid')}">
+                        <p>${requestScope.errorsMap.get('priceInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -147,10 +159,17 @@
                 </td>
                 <td>
                     <select name="idCategory">
-                        <c:forEach var="id" items="${categoryMap.keySet()}">
-                            <option value="${id}">${categoryMap.get(id).getName()}</option>
+                        <c:forEach var="id" items="${requestScope.categoryMap.keySet()}">
+                            <option
+                                    <c:if test="${id == requestScope.product.getIdCategory()}">
+                                        selected
+                                    </c:if>
+                                    value="${id}">${requestScope.categoryMap.get(id).getName()}</option>
                         </c:forEach>
                     </select>
+                    <c:if test="${requestScope.errorsMap.containsKey('idCategoryInvalid')}">
+                        <p>${requestScope.errorsMap.get('idCategoryInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             </tbody>

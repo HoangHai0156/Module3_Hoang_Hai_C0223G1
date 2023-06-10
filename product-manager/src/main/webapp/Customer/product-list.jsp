@@ -85,7 +85,7 @@
             margin-bottom: 20px;
         }
 
-        input[type=button] {
+        input[type=button], input[type=submit]{
             color: white;
             cursor: pointer;
         }

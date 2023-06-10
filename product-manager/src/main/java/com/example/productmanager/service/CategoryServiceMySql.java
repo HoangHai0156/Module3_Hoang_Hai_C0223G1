@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class CategoryServiceMySql extends DBContext{
     private static final String SELECT_ALL = "select * from categories";
+    private static final String SELECT_BY_ID = "select * from categories where id = ?";
     public List<Category> findAll(){
         List<Category> categories = new ArrayList<>();
         try(Connection connection = getConnection();
@@ -51,5 +52,20 @@ public class CategoryServiceMySql extends DBContext{
         }
 
         return new Category(id,name,deleteAt);
+    }
+    public Category findCategoryById(long id){
+        try(Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
+
+            preparedStatement.setLong(1,id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                return getCategorieFromRs(rs);
+            }
+        }catch (SQLException sqlException){
+            printSQLException(sqlException);
+        }
+        return null;
     }
 }

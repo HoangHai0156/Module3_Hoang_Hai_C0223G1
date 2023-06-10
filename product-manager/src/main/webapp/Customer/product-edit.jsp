@@ -102,6 +102,9 @@
         .fa-xmark:hover, .footer input[type=button]:hover{
             cursor: pointer;
         }
+        tr td input + p, tr td select + p{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +126,9 @@
                 </td>
                 <td>
                     <input value="${requestScope.product.getName()}" type="text" name="name" placeholder="Name">
+                    <c:if test="${requestScope.errorsMap.containsKey('productNameInvalid')}">
+                        <p>${requestScope.errorsMap.get('productNameInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -131,6 +137,9 @@
                 </td>
                 <td>
                     <input value="${requestScope.product.getDescription()}" type="text" name="description" placeholder="Description">
+                    <c:if test="${requestScope.errorsMap.containsKey('descriptionInvalid')}">
+                        <p>${requestScope.errorsMap.get('descriptionInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -139,6 +148,9 @@
                 </td>
                 <td>
                     <input value="${requestScope.product.getPrice()}" type="text" name="price" placeholder="Price">
+                    <c:if test="${requestScope.errorsMap.containsKey('priceInvalid')}">
+                        <p>${requestScope.errorsMap.get('priceInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             <tr>
@@ -155,6 +167,9 @@
                                     value="${id}">${requestScope.categoryMap.get(id).getName()}</option>
                         </c:forEach>
                     </select>
+                    <c:if test="${requestScope.errorsMap.containsKey('idCategoryInvalid')}">
+                        <p>${requestScope.errorsMap.get('idCategoryInvalid')}</p>
+                    </c:if>
                 </td>
             </tr>
             </tbody>
