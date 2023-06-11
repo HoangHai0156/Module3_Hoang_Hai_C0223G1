@@ -15,4 +15,16 @@ public class ValidateUtils {
         REGEX = "^[a-zA-Z][a-zA-Z0-9\\s.,!?-]{8,245}$";
         return Pattern.matches(REGEX,description);
     }
+    public static boolean isUserNameValid(String userName){
+        REGEX = "^[a-zA-Z\\s]{10,245}$";
+        return Pattern.matches(REGEX,userName);
+    }
+    public static boolean isAddressValid(String address){
+        REGEX = "^[a-zA-Z0-9\\s.,]{3,245}$";
+        return Pattern.matches(REGEX,address);
+    }
+    public static boolean isDOBValid(String dob){
+        REGEX = "^(19|20)\\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
+        return Pattern.matches(REGEX,dob);
+    }
 }

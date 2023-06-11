@@ -54,7 +54,7 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("categoryMap",categoryMap);
         request.setAttribute("product",pView);
-        request.getRequestDispatcher("/Customer/product-view.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/product-view.jsp").forward(request, response);
     }
 
     private void showDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,7 +64,7 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("categoryMap",categoryMap);
         request.setAttribute("product",pDelete);
-        request.getRequestDispatcher("/Customer/product-delete.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/product-delete.jsp").forward(request, response);
     }
 
     private void showEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -74,14 +74,14 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("categoryMap",categoryMap);
         request.setAttribute("product",pEdit);
-        request.getRequestDispatcher("/Customer/product-edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/product-edit.jsp").forward(request, response);
     }
 
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<Long, Category> categoryMap = categoryServiceMySql.getMapCategories();
 
         request.setAttribute("categoryMap",categoryMap);
-        request.getRequestDispatcher("/Customer/product-create.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/product-create.jsp").forward(request, response);
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -90,7 +90,7 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("categoryMap",categoryMap);
         request.setAttribute("products", productList);
-        request.getRequestDispatcher("/Customer/product-list.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/product-list.jsp").forward(request, response);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class ProductServlet extends HttpServlet {
                 doEdit(req, resp);
                 break;
             case "delete":
-                doDelete(req, resp);
+                doRemove(req, resp);
                 break;
             case "search":
                 doSearch(req, resp);
@@ -117,7 +117,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void doRemove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int idDelete = Integer.parseInt(req.getParameter("id"));
 
         productService.remove(idDelete);
@@ -131,7 +131,7 @@ public class ProductServlet extends HttpServlet {
 
         req.setAttribute("categoryMap",categoryMap);
         req.setAttribute("products", productListByName);
-        req.getRequestDispatcher("/Customer/product-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/product/product-list.jsp").forward(req, resp);
     }
 
     private void doEdit(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -162,7 +162,7 @@ public class ProductServlet extends HttpServlet {
             req.setAttribute("product",productEdit);
             req.setAttribute("errorsMap",errorsMap);
 
-            req.getRequestDispatcher("/Customer/product-edit.jsp").forward(req,resp);
+            req.getRequestDispatcher("/product/product-edit.jsp").forward(req,resp);
         }
 
     }
@@ -187,7 +187,7 @@ public class ProductServlet extends HttpServlet {
             req.setAttribute("product",newP);
             req.setAttribute("errorsMap",errorsMap);
 
-            req.getRequestDispatcher("/Customer/product-create.jsp").forward(req,resp);
+            req.getRequestDispatcher("/product/product-create.jsp").forward(req,resp);
         }
     }
 

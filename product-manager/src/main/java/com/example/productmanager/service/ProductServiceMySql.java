@@ -14,7 +14,7 @@ public class ProductServiceMySql extends DBContext{
     private static final String INSERT_PRODUCT = "INSERT INTO `products` (`name`, `description`, `createAt`, `price`, `idCategory`) VALUES (?,?,?,?,?)";
     private static final String UPDATE_PRODUCT = "UPDATE `products` SET `name` = ?, `description` = ?, `price` = ?, `idCategory` = ? WHERE (`id` = ?)";
     private static final String DELETE_PRODUCT = "UPDATE `products` SET `deleteAt` = ? WHERE (`id` = ?)";
-    private static final String SORT_BY_NAME_ASC = "select * from customers order by name";
+    private static final String SORT_BY_NAME_ASC = "select * from products order by name";
     public List<Product> findAll() {
         return getSelect(SELECT_ALL);
     }
